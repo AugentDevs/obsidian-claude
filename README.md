@@ -68,12 +68,24 @@ This repo provides a battle-tested solution: a Claude Code hook that intercepts 
 
 Do this **before** running the setup script.
 
-1. Open Obsidian Settings (gear icon) > Community plugins > Turn on community plugins.
+1. Open Obsidian Settings (gear icon) > **Community plugins** > Turn on community plugins.
 2. Install and enable **Custom File Extensions** by MeepTech.
    `obsidian://show-plugin?id=obsidian-custom-file-extensions-plugin`
 3. Install and enable **Local REST API** by Adam Coddington.
    `obsidian://show-plugin?id=obsidian-local-rest-api`
-4. Go to Settings > Files & Links > toggle **Detect all file extensions** ON.
+
+Both plugins should be installed and toggled ON:
+
+<p align="center">
+  <img src="./images/plugins.png" width="700" alt="Community plugins: Custom File Extensions and Local REST API installed and enabled">
+</p>
+
+4. Go to Settings > **Files and links** > toggle **Detect all file extensions** ON.
+
+<p align="center">
+  <img src="./images/file-extensions.png" width="700" alt="Files and links: Detect all file extensions toggled ON">
+</p>
+
 5. Restart Obsidian (quit fully and reopen).
 
 ### Part 2: Run the setup script
