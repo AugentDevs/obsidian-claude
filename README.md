@@ -1,11 +1,25 @@
 # obsidian-claude
 
-Make Claude Code and Obsidian work together on macOS.
+<p align="center">
+  <strong>Make Claude Code and Obsidian work together on macOS.</strong>
+</p>
 
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-![macOS only](https://img.shields.io/badge/platform-macOS-lightgrey.svg)
-![No Telemetry](https://img.shields.io/badge/telemetry-none-green.svg)
-![Dependencies: python3 + curl](https://img.shields.io/badge/dependencies-python3%20%2B%20curl-orange.svg)
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="License: MIT"></a>
+  <img src="https://img.shields.io/badge/platform-macOS-lightgrey.svg?style=for-the-badge" alt="macOS only">
+  <img src="https://img.shields.io/badge/telemetry-none-green.svg?style=for-the-badge" alt="No Telemetry">
+  <img src="https://img.shields.io/badge/dependencies-python3%20%2B%20curl-orange.svg?style=for-the-badge" alt="Dependencies">
+</p>
+
+<p align="center">
+  <a href="#the-problem">Problem</a> ·
+  <a href="#the-fix">Fix</a> ·
+  <a href="#setup">Setup</a> ·
+  <a href="#how-it-works">How It Works</a> ·
+  <a href="#troubleshooting">Troubleshooting</a> ·
+  <a href="#uninstall">Uninstall</a> ·
+  <a href="https://docs.augent.app/guides/obsidian-setup">Docs</a>
+</p>
 
 ---
 
@@ -28,7 +42,7 @@ This repo provides a battle-tested solution: a Claude Code hook that intercepts 
 > - All source code is in this repository. The setup script compiles from source on your machine.
 > - The hook only activates for files inside an Obsidian vault. Non-vault files have zero overhead.
 > - You can and should read `setup.sh` before running it. It is written to be auditable.
-> - Full uninstall available -- `bash uninstall.sh` cleanly removes everything.
+> - Full uninstall available — `bash uninstall.sh` cleanly removes everything.
 
 ## What Gets Installed
 
@@ -64,7 +78,7 @@ Do this **before** running the setup script.
 
 ### Part 2: Run the setup script
 
-**Option A: Clone and run**
+**Option A: Clone and run (recommended)**
 
 ```bash
 git clone https://github.com/AugentDevs/obsidian-claude.git
