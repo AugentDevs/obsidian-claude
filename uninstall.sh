@@ -101,15 +101,16 @@ for key in ('PreToolUse', 'PostToolUse'):
         continue
     filtered = []
     for entry in entries:
-        cmds = entry.get('command', []) if isinstance(entry, dict) else []
-        # Keep this entry unless any command ends with our hook scripts
-        if any(
-            isinstance(c, str) and (
-                c.endswith('obsidian-pre-edit.sh') or
-                c.endswith('obsidian-post-edit.sh')
+        hook_list = entry.get('hooks', []) if isinstance(entry, dict) else []
+        # Keep this entry unless any hook command ends with our scripts
+        is_ours = any(
+            isinstance(h, dict) and (
+                h.get('command', '').endswith('obsidian-pre-edit.sh') or
+                h.get('command', '').endswith('obsidian-post-edit.sh')
             )
-            for c in cmds
-        ):
+            for h in hook_list
+        )
+        if is_ours:
             changed = True
         else:
             filtered.append(entry)

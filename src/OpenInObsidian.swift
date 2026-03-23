@@ -43,6 +43,7 @@ func processFiles(_ files: [String]) {
             var linkType = "hardlink"
             var newlyLinked = false
 
+            // Fast path: check map file (with lock)
             let mapContent = readMapLocked(mapFile)
             let prefix = filepath + "|"
             for line in mapContent.components(separatedBy: "\n") {
@@ -63,6 +64,7 @@ func processFiles(_ files: [String]) {
                 }
             }
 
+            // Quick check: look in External Files by filename + inode
             if target.isEmpty {
                 let fname = (filepath as NSString).lastPathComponent
                 let quickPath = extDir + "/" + fname
@@ -73,10 +75,12 @@ func processFiles(_ files: [String]) {
                 }
             }
 
+            // Create link if not found
             if target.isEmpty {
                 let fname = (filepath as NSString).lastPathComponent
                 var linkPath = extDir + "/" + fname
 
+                // Filename collision: disambiguate with parent dir name
                 if fm.fileExists(atPath: linkPath) {
                     let existingAttrs = try? fm.attributesOfItem(atPath: linkPath)
                     let existingInode = (existingAttrs?[.systemFileNumber] as? UInt64) ?? 0
@@ -94,6 +98,7 @@ func processFiles(_ files: [String]) {
 
                 unlink(linkPath)
 
+                // Cross-volume fallback: try hard link, fall back to symlink
                 let linkResult = link(filepath, linkPath)
                 if linkResult != 0 {
                     symlink(filepath, linkPath)
@@ -104,12 +109,15 @@ func processFiles(_ files: [String]) {
                 newlyLinked = true
             }
 
+            // Update map with lock
             let mapSuffix = linkType == "symlink" ? "|symlink" : ""
             writeMapEntryLocked(mapFile, original: filepath, target: target, suffix: mapSuffix)
 
+            // New file in vault, give Obsidian a moment to index it
             if newlyLinked { Thread.sleep(forTimeInterval: 0.3) }
         }
 
+        // URL encode and open in Obsidian
         if let encoded = target.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed) {
             let urlStr = "obsidian://open?path=" + encoded
             if let url = URL(string: urlStr) {
