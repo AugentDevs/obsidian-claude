@@ -134,6 +134,7 @@ Claude Code's Edit tool writes directly to disk. Obsidian's file watcher detects
 
 | Problem | Fix |
 |---|---|
+| "Operation not permitted" error on open | Grant Full Disk Access to both apps: System Settings > Privacy & Security > Full Disk Access. Add Open in Obsidian.app and Obsidian File Watcher.app. |
 | `duti -x txt` still shows TextEdit | Re-run: `bash setup.sh` (safe to run multiple times). May need logout/login. |
 | swiftc fails | Run `sudo xcode-select --reset` then re-run setup. |
 | Permission dialogs on Desktop/Documents | Click Allow. Both Obsidian and the apps may need filesystem access. |

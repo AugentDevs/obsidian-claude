@@ -355,6 +355,10 @@ echo "  Vault:   $VAULT_PATH"
 echo "  Apps:    /Applications/Open in Obsidian.app"
 echo "           /Applications/Obsidian File Watcher.app"
 echo ""
+warn "  Grant Full Disk Access to both apps if prompted:"
+warn "  System Settings > Privacy & Security > Full Disk Access"
+warn "  Add: Open in Obsidian.app and Obsidian File Watcher.app"
+echo ""
 if [[ $ERRORS -eq 0 ]]; then
     success "  Done. Double-click any .txt or .md file to open it in Obsidian."
 fi
