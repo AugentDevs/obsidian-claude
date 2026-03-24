@@ -180,22 +180,22 @@ bash <(curl -fsSL https://raw.githubusercontent.com/AugentDevs/obsidian-claude/m
 
 When paired with [Augent](https://github.com/AugentDevs/Augent), your Obsidian vault becomes a living audio knowledge graph. Every podcast, interview, lecture, and tutorial you transcribe automatically becomes a connected node with semantic tags, wikilinks, and topic clusters.
 
-**1,000+ transcriptions, fully connected**
+**A live knowledge graph that grows with every transcription**
 
 <p align="center">
-  <img src="./images/obsidian-graph-hero.png" width="700" alt="Augent knowledge graph in Obsidian — green terminal aesthetic with hundreds of interconnected transcription nodes">
+  <img src="./images/obsidian-graph-hero.png" width="700" alt="Augent knowledge graph in Obsidian">
 </p>
 
-**Color-coded by topic with tag clusters and MOC hubs**
+**Color-coded topic clusters**
 
 <p align="center">
-  <img src="./images/obsidian-graph-colored.png" width="700" alt="Augent knowledge graph in Obsidian — color-coded by topic with visible tag clusters and MOC hubs">
+  <img src="./images/obsidian-graph-colored.png" width="700" alt="Obsidian graph with color-coded topic clusters">
 </p>
 
-**Smaller vault showing individual connections**
+**Local graph showing second-degree connections**
 
 <p align="center">
-  <img src="./images/obsidian-graph-small.png" width="500" alt="Augent knowledge graph in Obsidian — smaller vault showing individual node connections and topic groupings">
+  <img src="./images/obsidian-graph-small.png" width="500" alt="Graph view showing topic clusters">
 </p>
 
 ---
