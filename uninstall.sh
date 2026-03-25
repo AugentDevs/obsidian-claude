@@ -2,7 +2,7 @@
 set -eo pipefail
 
 # ---------------------------------------------------------------------------
-# obsidian-claude uninstaller
+# augent-obsidian uninstaller
 # ---------------------------------------------------------------------------
 
 # Colors
@@ -16,9 +16,9 @@ NC='\033[0m' # No Color
 # Banner
 # ---------------------------------------------------------------------------
 echo ""
-echo -e "${BOLD}obsidian-claude uninstall${NC}"
+echo -e "${BOLD}augent-obsidian uninstall${NC}"
 echo ""
-echo "This will remove all obsidian-claude components from your system."
+echo "This will remove all augent-obsidian components from your system."
 echo ""
 echo -e "${BOLD}Will be removed:${NC}"
 echo "  - Obsidian File Watcher (process + login item)"

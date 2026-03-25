@@ -1,4 +1,4 @@
-# obsidian-claude
+# augent-obsidian
 
 <p align="center">
   <strong>Make every .txt and .md file on your Mac open directly in Obsidian.</strong>
@@ -99,15 +99,15 @@ The screenshot shows both plugins installed and enabled. Custom File Extensions 
 **Option A: Clone and run (recommended)**
 
 ```bash
-git clone https://github.com/AugentDevs/obsidian-claude.git
-cd obsidian-claude
+git clone https://github.com/AugentDevs/augent-obsidian.git
+cd augent-obsidian
 bash setup.sh
 ```
 
 **Option B: One-liner**
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/AugentDevs/obsidian-claude/main/setup.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/AugentDevs/augent-obsidian/main/setup.sh)
 ```
 
 The script will:
@@ -151,7 +151,7 @@ bash uninstall.sh
 Or without cloning:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/AugentDevs/obsidian-claude/main/uninstall.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/AugentDevs/augent-obsidian/main/uninstall.sh)
 ```
 
 **This removes:**

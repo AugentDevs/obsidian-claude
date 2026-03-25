@@ -2,12 +2,12 @@
 set -eo pipefail
 
 # =============================================================================
-# obsidian-claude setup
+# augent-obsidian setup
 # Make every .txt and .md file on your Mac open directly in Obsidian.
 # =============================================================================
 
 VERSION="2.0.0"
-GITHUB_RAW="https://raw.githubusercontent.com/AugentDevs/obsidian-claude/main"
+GITHUB_RAW="https://raw.githubusercontent.com/AugentDevs/augent-obsidian/main"
 
 # --- Colors ---
 RED='\033[0;31m'
@@ -39,7 +39,7 @@ trap cleanup EXIT
 phase "1/6" "Detect environment"
 
 echo ""
-echo -e "${BOLD}  obsidian-claude setup${NC}  v${VERSION}"
+echo -e "${BOLD}  augent-obsidian setup${NC}  v${VERSION}"
 echo -e "  $(date +%Y-%m-%d)"
 echo ""
 
@@ -380,7 +380,7 @@ success "  [ok] File Watcher installed as LaunchAgent (auto-starts, auto-restart
 echo ""
 echo "==========================================="
 if [[ $ERRORS -eq 0 ]]; then
-    success "  obsidian-claude installed successfully!"
+    success "  augent-obsidian installed successfully!"
 else
     warn "  Installation completed with $ERRORS error(s)."
 fi
