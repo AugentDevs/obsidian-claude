@@ -1,6 +1,12 @@
 # augent-obsidian
 
 <p align="center">
+  <picture>
+    <img src="./images/banner.png" width="600" alt="Augent + Obsidian">
+  </picture>
+</p>
+
+<p align="center">
   <strong>Obsidian as your default editor for every .txt and .md file, with live sync for agent edits.</strong>
 </p>
 
