@@ -100,18 +100,18 @@ The screenshot shows both plugins installed and enabled. Custom File Extensions 
 
 ### Part 2: Run the setup script
 
-**Option A: Clone and run (recommended)**
+**One-liner (recommended)**
+
+```bash
+curl -fsSL https://augent.app/obsidian.sh | bash
+```
+
+**Or clone and run**
 
 ```bash
 git clone https://github.com/AugentDevs/augent-obsidian.git
 cd augent-obsidian
 bash setup.sh
-```
-
-**Option B: One-liner**
-
-```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/AugentDevs/augent-obsidian/main/setup.sh)
 ```
 
 The script will:
