@@ -80,7 +80,7 @@ Do this **before** running the setup script.
 3. *(Recommended)* Install and enable **Local REST API** by Adam Coddington.
    `obsidian://show-plugin?id=obsidian-local-rest-api`
 
-Both plugins should be installed and toggled ON:
+The screenshot shows both plugins installed and enabled. Custom File Extensions is required. Local REST API is recommended for power users (adds search, read, and automation capabilities to your vault) but not necessary for the core setup:
 
 <p align="center">
   <img src="./images/plugins.png" width="700" alt="Community plugins: Custom File Extensions and Local REST API installed and enabled">
