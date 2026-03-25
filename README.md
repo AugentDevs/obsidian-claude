@@ -140,6 +140,7 @@ Claude Code's Edit tool writes directly to disk. Obsidian's file watcher detects
 | Permission dialogs on Desktop/Documents | Click Allow. Both Obsidian and the apps may need filesystem access. |
 | `.txt` files show raw text in Obsidian | Make sure Custom File Extensions plugin is installed and enabled. |
 | External files don't appear in vault | Check that Obsidian File Watcher is running: `ps aux | grep obsidian-file-watcher` |
+| Edits from Claude/Codex don't appear in Obsidian | The File Watcher may not be running. Check: `ps aux | grep obsidian-file-watcher`. If not running, re-run `bash setup.sh` to install the launchd agent that auto-starts and auto-restarts the watcher. |
 
 ## Uninstall
 
