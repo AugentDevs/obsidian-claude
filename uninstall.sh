@@ -33,15 +33,6 @@ echo "  - Homebrew and duti"
 echo "  - Claude Code hooks and settings"
 echo ""
 
-# ---------------------------------------------------------------------------
-# Confirmation
-# ---------------------------------------------------------------------------
-read -rp "Continue? [y/N] " confirm
-if [[ ! "$confirm" =~ ^[yY]$ ]]; then
-    echo -e "${YELLOW}Aborted.${NC}"
-    exit 0
-fi
-
 echo ""
 
 # ---------------------------------------------------------------------------
