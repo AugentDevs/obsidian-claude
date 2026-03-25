@@ -149,14 +149,10 @@ Claude Code's Edit tool writes directly to disk. Obsidian's file watcher detects
 ## Uninstall
 
 ```bash
-bash uninstall.sh
-```
-
-Or without cloning:
-
-```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/AugentDevs/augent-obsidian/main/uninstall.sh)
 ```
+
+Or if you still have the cloned repo, run `bash uninstall.sh` from inside it.
 
 **This removes:**
 
