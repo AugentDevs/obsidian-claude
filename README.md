@@ -1,7 +1,7 @@
 # augent-obsidian
 
 <p align="center">
-  <strong>Make every .txt and .md file on your Mac open directly in Obsidian.</strong>
+  <strong>Obsidian as your default editor for every .txt and .md file, with live sync for agent edits.</strong>
 </p>
 
 <p align="center">
