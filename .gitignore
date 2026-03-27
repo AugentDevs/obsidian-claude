@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+._*
+
+# Build artifacts
+build/
+*.dSYM/
+*.o
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+
+# Obsidian
+.obsidian/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log

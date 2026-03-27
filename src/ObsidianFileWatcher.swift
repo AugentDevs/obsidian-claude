@@ -114,10 +114,14 @@ class WatcherDelegate: NSObject, NSApplicationDelegate {
                 let vfileMod = (vfileAttrs?[.modificationDate] as? Date) ?? .distantPast
                 if vfileMod > origMod {
                     unlink(orig)
-                    link(vfile, orig)
+                    if link(vfile, orig) != 0 {
+                        NSLog("augent-obsidian: relink failed %@ -> %@ (errno: %d)", vfile, orig, errno)
+                    }
                 } else {
                     unlink(vfile)
-                    link(orig, vfile)
+                    if link(orig, vfile) != 0 {
+                        NSLog("augent-obsidian: relink failed %@ -> %@ (errno: %d)", orig, vfile, errno)
+                    }
                 }
                 changed = true
             }

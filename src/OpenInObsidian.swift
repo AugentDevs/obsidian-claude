@@ -101,7 +101,10 @@ func processFiles(_ files: [String]) {
                 // Cross-volume fallback: try hard link, fall back to symlink
                 let linkResult = link(filepath, linkPath)
                 if linkResult != 0 {
-                    symlink(filepath, linkPath)
+                    let symlinkResult = symlink(filepath, linkPath)
+                    if symlinkResult != 0 {
+                        NSLog("augent-obsidian: failed to link or symlink %@ -> %@ (errno: %d)", filepath, linkPath, errno)
+                    }
                     linkType = "symlink"
                 }
 

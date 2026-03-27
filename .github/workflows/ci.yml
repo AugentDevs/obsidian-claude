@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install shellcheck
+        run: brew install shellcheck
+
+      - name: Shellcheck setup.sh
+        run: shellcheck -x setup.sh
+
+      - name: Shellcheck uninstall.sh
+        run: shellcheck -x uninstall.sh
+
+      - name: Shellcheck test.sh
+        run: shellcheck -x test.sh
+
+      - name: Validate plists
+        run: |
+          plutil -lint src/open-in-obsidian.plist
+          plutil -lint src/file-watcher.plist
+
+  build:
+    name: Build
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile OpenInObsidian
+        run: |
+          sed 's|VAULT_PATH_HERE|/tmp/test-vault|g' src/OpenInObsidian.swift > /tmp/OpenInObsidian.swift
+          swiftc -O -o /tmp/open-in-obsidian /tmp/OpenInObsidian.swift -framework Cocoa
+
+      - name: Compile ObsidianFileWatcher
+        run: |
+          sed 's|VAULT_PATH_HERE|/tmp/test-vault|g' src/ObsidianFileWatcher.swift > /tmp/ObsidianFileWatcher.swift
+          swiftc -O -o /tmp/obsidian-file-watcher /tmp/ObsidianFileWatcher.swift -framework Cocoa

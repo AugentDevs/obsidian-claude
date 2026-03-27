@@ -296,9 +296,12 @@ else
     log_success "All source files downloaded"
 fi
 
+# Escape vault path for safe sed substitution (handles special chars like &, |, /)
+VAULT_PATH_ESCAPED=$(printf '%s\n' "$VAULT_PATH" | sed 's/[&/\]/\\&/g')
+
 # Build OpenInObsidian
 start_spinner "Compiling Open in Obsidian"
-sed "s|VAULT_PATH_HERE|$VAULT_PATH|g" "$SRC_DIR/OpenInObsidian.swift" > "$BUILD_DIR/OpenInObsidian.swift"
+sed "s|VAULT_PATH_HERE|$VAULT_PATH_ESCAPED|g" "$SRC_DIR/OpenInObsidian.swift" > "$BUILD_DIR/OpenInObsidian.swift"
 if ! swiftc -O -o "$BUILD_DIR/open-in-obsidian" "$BUILD_DIR/OpenInObsidian.swift" -framework Cocoa > /dev/null 2>&1; then
     stop_spinner
     log_error "swiftc failed for OpenInObsidian.swift"
@@ -310,7 +313,7 @@ log_success "Open in Obsidian compiled"
 
 # Build ObsidianFileWatcher
 start_spinner "Compiling Obsidian File Watcher"
-sed "s|VAULT_PATH_HERE|$VAULT_PATH|g" "$SRC_DIR/ObsidianFileWatcher.swift" > "$BUILD_DIR/ObsidianFileWatcher.swift"
+sed "s|VAULT_PATH_HERE|$VAULT_PATH_ESCAPED|g" "$SRC_DIR/ObsidianFileWatcher.swift" > "$BUILD_DIR/ObsidianFileWatcher.swift"
 if ! swiftc -O -o "$BUILD_DIR/obsidian-file-watcher" "$BUILD_DIR/ObsidianFileWatcher.swift" -framework Cocoa > /dev/null 2>&1; then
     stop_spinner
     log_error "swiftc failed for ObsidianFileWatcher.swift"
@@ -418,9 +421,9 @@ cat > "$PLIST_PATH" << LAUNCHD_EOF
     <key>KeepAlive</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>/tmp/obsidian-file-watcher.log</string>
+    <string>$HOME/Library/Logs/obsidian-file-watcher.log</string>
     <key>StandardErrorPath</key>
-    <string>/tmp/obsidian-file-watcher.log</string>
+    <string>$HOME/Library/Logs/obsidian-file-watcher.log</string>
 </dict>
 </plist>
 LAUNCHD_EOF
