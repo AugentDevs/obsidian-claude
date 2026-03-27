@@ -102,7 +102,7 @@ start_spinner "Searching for Obsidian vaults"
 VAULT_DIRS=()
 while IFS= read -r line; do
     VAULT_DIRS+=("$(dirname "$line")")
-done < <(find ~/Desktop ~/Documents ~/ -maxdepth 3 -name ".obsidian" -type d 2>/dev/null | head -10)
+done < <(find ~/Desktop ~/Documents ~/ -maxdepth 3 -name ".obsidian" -type d 2>/dev/null | sort -u | head -10)
 stop_spinner
 
 if [[ ${#VAULT_DIRS[@]} -eq 0 ]]; then
